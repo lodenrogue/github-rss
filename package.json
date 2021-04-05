@@ -1,13 +1,13 @@
 {
   "name": "github-rss",
   "version": "1.0.0",
-  "description": "",
+  "description": "A better implementation of github rss",
   "main": "github-rss.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
     "feed": "^4.2.2",
