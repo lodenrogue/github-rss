@@ -17,6 +17,11 @@ curl localhost:4993/github-rss/trending/daily.rss
 
 ### Get trending daily for Java
 
-```
+```sh
 curl localhost:4993/github-rss/trending/java/daily.rss
+```
+
+### Get trending daily for JavaScript
+```sh
+curl localhost:4993/github-rss/trending/javascript/daily.rss
 ```
