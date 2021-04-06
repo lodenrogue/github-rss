@@ -17,6 +17,11 @@ app.get('/github-rss/trending/java/daily.rss', async (req, res) => {
     res.send(feed.toRss());
 });
 
+app.get('/github-rss/trending/python/daily.rss', async (req, res) => {
+    let feed = await new FeedService().getPythonTrending();
+    res.send(feed.toRss());
+})
+
 process.on('SIGINT', () => {
   console.info("Interrupted");
   process.exit(0);

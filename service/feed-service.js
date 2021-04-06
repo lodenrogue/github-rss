@@ -17,6 +17,11 @@ class FeedService {
         return this.toTrendingFeed(originalFeed);
     }
 
+    async getPythonTrending() {
+        let originalFeed = await this.rssRepository.getPythonTrending();
+        return this.toTrendingFeed(originalFeed);
+    }
+
     toTrendingFeed(originalFeed) {
         originalFeed.channel.items.forEach(this.updateTitle);
         return new FeedConverter(originalFeed).convert();

@@ -13,14 +13,20 @@ describe("Feed Service", function() {
         feedService = new FeedService(rssRepository);
     });
 
-    it("should return trending daily feed with description added to title", async function() {
+    it("should return all trending feed with description added to title", async function() {
         let feed = await feedService.getTrending();
         let items = feed.channel.items;
         expect(items[0].title).toEqual(`${TEST_TITLE} - ${TEST_DESCRIPTION}`);
     });
 
-    it("should return java trending feed with description added to title", async function() {
+    it("should return Java trending feed with description added to title", async function() {
         let feed = await feedService.getJavaTrending();
+        let items = feed.channel.items;
+        expect(items[0].title).toEqual(`${TEST_TITLE} - ${TEST_DESCRIPTION}`);
+    });
+
+    it("should return Python trending feed with description added to title", async function() {
+        let feed = await feedService.getPythonTrending();
         let items = feed.channel.items;
         expect(items[0].title).toEqual(`${TEST_TITLE} - ${TEST_DESCRIPTION}`);
     });
@@ -37,7 +43,6 @@ describe("Feed Service", function() {
         return {
             title: title,
             items: [{ title: title, contentSnippet: description }]
-
         };
     }
 
