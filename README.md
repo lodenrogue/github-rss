@@ -9,6 +9,14 @@ Adds better titles to RSS items
 node github-rss
 ```
 
+### Get trending daily for all languages
+
 ```sh
-curl localhost:8081/github/trending/daily.rss
+curl localhost:4993/github-rss/trending/daily.rss
+```
+
+### Get trending daily for Java
+
+```
+curl localhost:4993/github-rss/trending/java/daily.rss
 ```
