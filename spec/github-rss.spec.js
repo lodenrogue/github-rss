@@ -31,6 +31,12 @@ describe("Feed Service", function() {
         expect(items[0].title).toEqual(`${TEST_TITLE} - ${TEST_DESCRIPTION}`);
     });
 
+    it("should return JavaScript trending feed with description added to title", async function() {
+        let feed = await feedService.getJavaScriptTrending();
+        let items = feed.channel.items;
+        expect(items[0].title).toEqual(`${TEST_TITLE} - ${TEST_DESCRIPTION}`);
+    });
+
     function createMockParser(title, description) {
         return {
             parseURL : function(url) {

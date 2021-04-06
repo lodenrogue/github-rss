@@ -3,6 +3,7 @@ const Parser = require('rss-parser');
 const ALL_TRENDING_URL = 'https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml';
 const JAVA_TRENDING_URL = 'https://mshibanami.github.io/GitHubTrendingRSS/daily/java.xml';
 const PYTHON_TRENDING_URL = 'https://mshibanami.github.io/GitHubTrendingRSS/daily/python.xml';
+const JAVASCRIPT_TRENDING_URL = 'https://mshibanami.github.io/GitHubTrendingRSS/daily/javascript.xml';
 
 class RssRepository {
 
@@ -20,6 +21,10 @@ class RssRepository {
 
     async getPythonTrending() {
         return await this.get(PYTHON_TRENDING_URL);
+    }
+
+    async getJavaScriptTrending() {
+        return await this.get(JAVASCRIPT_TRENDING_URL);
     }
 
     async get(url) {

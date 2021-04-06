@@ -22,6 +22,11 @@ class FeedService {
         return this.toTrendingFeed(originalFeed);
     }
 
+    async getJavaScriptTrending() {
+        let originalFeed = await this.rssRepository.getJavaScriptTrending();
+        return this.toTrendingFeed(originalFeed);
+    }
+
     toTrendingFeed(originalFeed) {
         originalFeed.channel.items.forEach(this.updateTitle);
         return new FeedConverter(originalFeed).convert();
