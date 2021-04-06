@@ -4,4 +4,6 @@ COPY ./ /app
 
 WORKDIR /app
 
+RUN npm install
+
 ENTRYPOINT ["node", "github-rss.js"] 
