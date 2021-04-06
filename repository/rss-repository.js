@@ -1,11 +1,24 @@
 const Parser = require('rss-parser');
 
-const ALL_LANUAGE_TRENDING_URL = 'https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml';
+const ALL_TRENDING_URL = 'https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml';
+const JAVA_TRENDING_URL = 'https://mshibanami.github.io/GitHubTrendingRSS/daily/java.xml';
 
 class RssRepository {
 
-    async getTrending() {
-        let parsedFeed = await new Parser().parseURL(ALL_LANUAGE_TRENDING_URL);
+    constructor(parser = new Parser()) {
+        this.parser = parser;
+    }
+
+    async getAllTrending() {
+        return await this.get(ALL_TRENDING_URL);
+    }
+
+    async getJavaTrending() {
+        return await this.get(JAVA_TRENDING_URL);
+    }
+
+    async get(url) {
+        let parsedFeed = await this.parser.parseURL(url);
         return this.toFeed(parsedFeed);
     }
 
@@ -30,7 +43,6 @@ class RssRepository {
             description: parsedItem.content
         };
     }
-
 }
 
 module.exports = RssRepository;

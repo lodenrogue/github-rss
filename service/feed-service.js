@@ -8,7 +8,16 @@ class FeedService {
     }
 
     async getTrending() {
-        let originalFeed = await this.rssRepository.getTrending();
+        let originalFeed = await this.rssRepository.getAllTrending();
+        return this.toTrendingFeed(originalFeed);
+    }
+
+    async getJavaTrending() {
+        let originalFeed = await this.rssRepository.getJavaTrending();
+        return this.toTrendingFeed(originalFeed);
+    }
+
+    toTrendingFeed(originalFeed) {
         originalFeed.channel.items.forEach(this.updateTitle);
         return new FeedConverter(originalFeed).convert();
     }
